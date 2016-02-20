@@ -1,16 +1,19 @@
 <html>
   <head>
-    <title>Laura's blog: page name</title>
+    <title>Laura's blog</title>
   </head>
   <body>
     <div>
-    <h1>I want to change this font</h1>
-    <p>Now you've come this far, go see my other blog: <br /><br />
-    <strong><a href="http://www.franglaisphotography.com/blog">Franglais Photography</a href></p>
+      <h1><a href="/">I want to change this font</a></h1>
     </div>
 
-    <div>
-    <h2>Second part of the page</h2>
-    <p>Normal text goes here</p>
+    {% for post in posts %}
+      <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="/">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaks }}</p>
+      </div>
+    {% endfor %}
+
   </body>
 </html>
